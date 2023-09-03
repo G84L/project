@@ -1,0 +1,136 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Math test</title>
+        
+    </head>
+    <style>
+        /*website*/
+        body{
+            margin: 0;
+        }
+        /*start_screen*/
+        .banner{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 200px;
+            background-color: rgb(236, 241, 144);
+            font-size: x-large;
+        }
+
+        .menu{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 200px;
+            font-size: large; 
+        }
+
+        .menu_info{
+            width: 60%;
+            font-size: x-large;
+        }
+
+        .menu_button{
+            font-size: large;
+        }
+        /*questions*/
+        #question{
+            display: none;
+            font-size: large;
+            text-align: center;
+        }
+        .question_section{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #input{
+            display: none;
+        }
+        #submit_button{
+            display: none;
+        }
+        /*footer*/
+        footer{
+            height: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: grey;
+            height: 50px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+    <body>
+        <section id="start_screen">
+            
+            <section class="banner">
+                <h1>Welcome to the math question generator!</h1>
+                <h5>made by Phone Tayzar Nai</h5>
+            </section>
+            
+            <section class="menu">
+                <p class="menu_info">A question will ask the sum of two random numbers from 1 to 10. Generate a math question by clicking the button below! </p>
+                <script>
+                    
+                    function question(){
+                        document.getElementById('question').style.display = 'block';
+                        document.getElementById('input').style.display = 'block';
+                        document.getElementById('submit_button').style.display = 'block';
+                    }
+                </script>
+                <button class="menu_button" type="button" onclick = "question();">Click me to generate!</button>
+               
+            </section>
+        </section>
+    
+        
+        <section class="question_section">
+            <h1>Question:</h1>
+            <section id="question_content">
+                <p id="question"></p>
+                
+                <form id="input">
+                    <label>answer:</label>
+                    <span>
+                        <input id="answer" type="text">
+                        <button class="submit_button" onclick="submitAnswer();">submit</button>
+                    </span>
+                </form>
+                
+                <script>
+                    
+                    function setQuestion(){
+                        x = Math.floor(Math.random() * 11);
+                        y = Math.floor(Math.random() * 11);
+                        document.getElementById("question").innerHTML = `${x} + ${y} = ?`;
+                    }
+                    setQuestion();
+                    function submitAnswer(){
+                        let answer = document.getElementById("answer").value;
+                            if (answer == (x+y)){
+                                alert("correct!") 
+                            } else {
+                                alert("wrong!")
+                            }
+                            question()
+                        }
+                </script>
+            </section>
+        </section>
+         
+        <footer>
+            <p>copyright to Phone Tayzar Nai ©</p>
+        </footer>
+    </body>
+</html>
